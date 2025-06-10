@@ -1,0 +1,236 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: "Manrope", poppins, sans-serif;
+  scroll-behavior: smooth;
+  background: #fffcfc;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  z-index: 4;
+  color: white;
+}
+
+/* Group nav and hamburger  */
+.nav-toggle-group {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Hamburger styles */
+.hamburger {
+  cursor: pointer;
+  display: none; /* Shown only on mobile */
+}
+
+.hamburger svg {
+  height: 3em;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: black;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+  transition: stroke-dasharray 600ms, stroke-dashoffset 600ms;
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input {
+  display: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-family: "Georgia", serif;
+  font-weight: bold;
+  color: black;
+}
+/* Desktop nav links */
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff2e2e;
+  transform: scale(1.08);
+  font-weight: bold;
+  font-size: 300;
+}
+/* Hide hamburger by default (desktop) */
+.hamburger {
+  display: none;
+}
+/* SCROLLING BACKGROUND TEXT */
+.scrolling-text {
+  position: absolute; /* Keeps it stuck in place */
+  top: 110px; /* Set how far from top it should sit */
+  left: 0;
+  width: 200%;
+  white-space: nowrap;
+  font-family: "Anton", sans-serif;
+  font-size: 10vw;
+  color: black;
+  opacity: 0.9;
+  animation: scrollText 20s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* CONTACT SECTION */
+
+.contact-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-section {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 150px 50px;
+  min-height: 90vh;
+}
+
+.contact-info {
+  max-width: 45%;
+  padding-left: 20px;
+}
+
+.contact-info h3 {
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  margin: 5px 0 20px;
+}
+
+.logo-img {
+  width: 500px;
+  height: 500px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+.contact-info,
+.logo-img {
+  position: relative; /* required to apply z-index */
+  z-index: 3;
+}
+a[href^="tel:"] {
+  color: black !important;
+  text-decoration: none !important;
+  cursor: default;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    margin-left: 20px;
+  }
+
+  .logo {
+    margin-right: auto;
+    font-size: 1.2rem;
+    font-family: "Georgia", serif;
+  }
+  .navbar {
+    padding: 10px 20px;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    color: black;
+    background: #fffcfc;
+    padding: 20px;
+    border-radius: 8px;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    margin-left: 30px;
+    font-family: "poppins", Helvetica Neue, sans-serif;
+    color: black;
+    text-decoration: none;
+    font-weight: 550;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .contact-section {
+    flex-direction: column; /* Stack vertically */
+    padding: 100px 20px;
+    text-align: center;
+  }
+
+  .contact-info {
+    order: 2; /* Comes first */
+    max-width: 100%;
+    padding-left: 0;
+    margin-bottom: 30px; /* move entire block up */
+  }
+
+  .logo-img {
+    order: 1; /* Comes after contact info */
+    width: 70%;
+    height: auto;
+    margin-top: 45px;
+    border-radius: 30px;
+  }
+}

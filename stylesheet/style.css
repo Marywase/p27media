@@ -1,0 +1,993 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  height: 100%;
+  font-family: "poppins", Helvetica Neue, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  z-index: 4;
+  color: white;
+}
+
+/* Group nav and hamburger  */
+.nav-toggle-group {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Hamburger styles */
+.hamburger {
+  cursor: pointer;
+  display: none; /* Shown only on mobile */
+}
+
+.hamburger svg {
+  height: 3em;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+  transition: stroke-dasharray 600ms, stroke-dashoffset 600ms;
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input {
+  display: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-family: "Georgia", serif;
+  font-weight: bold;
+}
+/* Desktop nav links */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 300;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff2e2e;
+  transform: scale(1.05);
+  font-weight: bold;
+  font-size: 300;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.typing-container {
+  font-family: "poppins", Helvetica Neue, sans-serif;
+  white-space: nowrap;
+}
+
+.line1 {
+  white-space: nowrap;
+}
+.caret {
+  display: inline-block;
+  animation: blink 0.6s step-end infinite;
+  color: white; /* or whatever color */
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* NAVIGATION */
+.navbar {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  color: white;
+}
+
+.nav-links a {
+  margin-left: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* HERO CONTENT */
+.hero-content {
+  text-align: center;
+  color: white;
+  z-index: 2;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  max-width: 90%;
+  margin: 0 auto 30px;
+  font-weight: 600;
+}
+
+/* BUTTONS */
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 15px 30px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-btn {
+  background: white;
+  color: black;
+}
+
+.view-btn {
+  background: transparent;
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+.contact-btn:hover {
+  background: black;
+  color: white;
+}
+
+.view-btn:hover {
+  color: white;
+  background: black;
+  border: none;
+  transition: all 0.3s ease ease-in-out;
+}
+video {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  max-width: 100%;
+}
+
+.wedding-intro {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: white; /* soft blush tone */
+  color: #3d3d3d;
+  font-family: "Georgia", serif;
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.wedding-intro.show-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+.wedding-intro h1 {
+  font-size: 2.5rem;
+  color: #080808; /* soft romantic color */
+  margin-bottom: 1rem;
+}
+
+.wedding-intro p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+}
+
+.wedding-intro .highlight {
+  font-weight: bold;
+  font-style: italic;
+  color: #080808;
+}
+
+.founder-section {
+  max-width: 900px;
+  margin: 3rem auto;
+  overflow: hidden;
+  background: #fff;
+  font-family: "Georgia", serif;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.founder-section.show-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+.founder-image {
+  width: 90%;
+  margin-left: 3rem;
+  height: 700px; /* or any height */
+  object-fit: cover;
+  border-top-left-radius: 45%; /* Horizontal radius / vertical radius */
+  border-top-right-radius: 45%;
+  display: block;
+  margin: 0 auto;
+}
+.founder-content {
+  padding: 2rem;
+  text-align: center;
+  color: #3d3d3d;
+}
+
+.founder-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #080808;
+}
+
+.founder-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+.founder-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-link {
+  font-weight: bold;
+  color: #d12020;
+  text-decoration: none;
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+
+.about-link:hover {
+  color: #a01717;
+  text-decoration: underline;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: "Georgia", serif;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.gallery-title.show-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+.gallery-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.gallery-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-item img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  object-fit: cover; /* fills container, preserves aspect */
+  transition: transform 0.4s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.03);
+}
+
+.gallery-info {
+  flex: 1;
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: white; /* soft blush tone */
+  color: #080808;
+  font-family: "Georgia", serif;
+}
+
+.gallery-intro {
+  font-size: 2.2rem;
+  color: #080808; /* soft romantic color */
+  margin-bottom: 1rem;
+}
+
+.gallery-info p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+}
+
+.gallery-intro span {
+  color: #4e342e;
+}
+.gallery-item.reverse {
+  flex-direction: row-reverse;
+}
+
+.gallery-link {
+  font-weight: bold;
+  color: #4e342e;
+  text-decoration: none;
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+
+.gallery-link:hover {
+  color: #4e342e;
+  text-decoration: underline;
+}
+
+.Sarah-intro {
+  font-size: 2.2rem;
+  color: #556b2f;
+  margin-bottom: 1rem;
+}
+
+.Sarah-link {
+  font-weight: bold;
+  color: #556b2f;
+  text-decoration: none;
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+
+.Sarah-link:hover {
+  color: #556b2f;
+  text-decoration: underline;
+}
+.footer {
+  background-color: #fcfbf7;
+  color: #212121;
+  padding: 40px;
+  font-family: "Georgia", serif;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  position: relative;
+}
+
+.footer.show-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer-section.address {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* space between lines */
+}
+
+.footer-section.address p,
+.footer-section.address a {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-section.address {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* space between lines */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.footer-section {
+  margin: 15px;
+}
+
+.small-heading {
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+}
+
+.small-heading:hover {
+  color: inherit;
+  cursor: default;
+}
+
+.footer-section address:hover {
+  text-decoration: none !important;
+}
+
+.email {
+  font-size: 34px;
+  font-family: roboto;
+  font-weight: bold;
+  color: #080808;
+  cursor: pointer;
+}
+
+.footer-section h4 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-section ul,
+.footer-section p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 20px 30px;
+  font-size: 0.9rem;
+  border-top: 1px solid #ccc;
+  color: #3d3d3d;
+}
+
+.footer-bottom p {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footer-section ul li a,
+.footer-section p a,
+.email a {
+  color: black;
+  margin: 0;
+  text-decoration: none;
+  display: inline-block;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.footer-section.links {
+  margin: 15px; /* same margin as others */
+}
+
+.footer-section.links h4 {
+  font-weight: bold;
+  margin-bottom: 10px; /* consistent heading spacing */
+}
+
+.footer-section.links ul {
+  list-style: none; /* remove bullet points */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* spacing between links */
+}
+
+.footer-section.links ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-section.links ul li a {
+  color: #212121; /* match footer text color */
+  text-decoration: none;
+  font-family: "Georgia", serif; /* consistent font */
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  padding: 2px 0; /* vertical padding for easier click */
+  display: inline-block;
+}
+
+.footer-section.links ul li a:hover {
+  color: #555; /* subtle hover color */
+  cursor: pointer;
+}
+
+.footer-section.follow {
+  margin: 15px; /* same margin as other footer sections */
+}
+
+.footer-section.follow h4 {
+  font-weight: bold;
+  margin-bottom: 10px; /* same heading spacing */
+}
+
+.footer-section.follow ul {
+  list-style: none; /* remove bullets */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* space between social links */
+}
+
+.footer-section.follow ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-section.follow ul li a {
+  color: #212121; /* same color as footer text */
+  text-decoration: none;
+  font-family: "Georgia", serif; /* match footer font */
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  padding: 2px 0; /* small vertical padding for easier clicking */
+  display: inline-block;
+}
+
+.footer-section.follow ul li a:hover {
+  color: #555; /* subtle hover */
+  cursor: pointer;
+}
+
+.back-to-top {
+  font-size: 0.95rem;
+  color: black;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: absolute;
+  right: 30px;
+}
+
+.back-to-top:hover {
+  color: #ff2e2e;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    margin-left: 20px;
+  }
+
+  .logo {
+    margin-right: auto;
+    font-size: 1.2rem;
+    font-family: "Georgia", serif;
+  }
+  .navbar {
+    padding: 10px 20px;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    color: black;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    margin-left: 30px;
+    color: black;
+    text-decoration: none;
+    font-weight: 550;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .nav-links a {
+    margin-left: 15px;
+    font-size: 0.9rem;
+  }
+  .btn {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+  }
+  .wedding-intro {
+    padding: 6rem 3rem;
+  }
+
+  .wedding-intro h1 {
+    font-size: 2rem;
+  }
+
+  .wedding-intro p {
+    font-size: 1.1rem;
+  }
+  .founder-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .founder-text h3 {
+    font-size: 1.3rem;
+  }
+
+  .founder-text p {
+    font-size: 0.95rem;
+  }
+
+  .founder-image {
+    height: 55vh;
+    align-content: center;
+  }
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-item,
+  .gallery-item.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .gallery-info {
+    padding: 10px 0;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer-section {
+    min-width: 100%;
+  }
+
+  .footer-section ul li {
+    font-size: 1rem;
+  }
+
+  .footer-section {
+    font-size: 1.1rem;
+  }
+
+  .email {
+    font-size: 1.5rem;
+  }
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .back-to-top {
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .footer-bottom p {
+    width: auto;
+  }
+}
+@media (max-width: 480px) {
+  .hamburger {
+    display: block;
+    margin-left: 20px;
+  }
+
+  .logo {
+    margin-right: auto;
+    font-size: 1.2rem;
+    font-family: "Georgia", serif;
+  }
+  .navbar {
+    padding: 10px 20px;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    color: black;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    margin-left: 30px;
+    color: black;
+    text-decoration: none;
+    font-weight: 550;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .nav-links a {
+    margin-left: 15px;
+    font-size: 0.9rem;
+  }
+  .btn {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+  }
+  .wedding-intro {
+    padding: 6rem 3rem;
+  }
+
+  .wedding-intro h1 {
+    font-size: 2rem;
+  }
+
+  .wedding-intro p {
+    font-size: 1.1rem;
+  }
+  .founder-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .founder-text h3 {
+    font-size: 1.3rem;
+  }
+
+  .founder-text p {
+    font-size: 0.95rem;
+  }
+
+  .founder-image {
+    height: 55vh;
+  }
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer-section {
+    min-width: 100%;
+  }
+
+  .footer-section ul li {
+    font-size: 1rem;
+  }
+
+  .footer-section {
+    font-size: 1.1rem;
+  }
+
+  .email {
+    font-size: 1.5rem;
+  }
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .back-to-top {
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .footer-bottom p {
+    width: auto;
+  }
+}
+@media (min-width: 300px) and (max-width: 430px) {
+  .hamburger {
+    display: block;
+    margin-left: 20px;
+  }
+
+  .logo {
+    margin-right: auto;
+    font-size: 1.3rem;
+    font-family: "Georgia", serif;
+  }
+  .navbar {
+    padding: 10px 20px;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    color: black;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    margin-left: 30px;
+    color: black;
+    text-decoration: none;
+    font-weight: 550;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .nav-links a {
+    margin-left: 15px;
+    font-size: 0.9rem;
+  }
+  .btn {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+  }
+  .wedding-intro {
+    padding: 6rem 3rem;
+  }
+
+  .wedding-intro h1 {
+    font-size: 2rem;
+  }
+
+  .wedding-intro p {
+    font-size: 1.1rem;
+  }
+
+  .founder-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .founder-text h3 {
+    font-size: 1.3rem;
+  }
+
+  .founder-text p {
+    font-size: 0.95rem;
+  }
+
+  .founder-image {
+    height: 55vh;
+  }
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer-section {
+    min-width: 100%;
+  }
+
+  .footer-section ul li {
+    font-size: 1rem;
+  }
+
+  .footer-section {
+    font-size: 1.1rem;
+  }
+
+  .email {
+    font-size: 1.5rem;
+  }
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .back-to-top {
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .footer-bottom p {
+    width: auto;
+  }
+}
